@@ -124,10 +124,10 @@ android.api = 33
 #android.ndk_api = 21
 
 # (str) Android NDK directory (if empty, it will be automatically downloaded.)
-android.ndk_path = /data/data/com.termux/files/usr/opt/android-ndk
+android.ndk_path = 
 
 # (str) Android SDK directory (if empty, it will be automatically downloaded.)
-android.sdk_path = /data/data/com.termux/files/usr/opt/android-sdk-tools
+android.sdk_path = 
 
 # (str) ANT directory (if empty, it will be automatically downloaded.)
 #android.ant_path =
