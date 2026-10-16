@@ -1,5 +1,6 @@
 name: Build with Buildozer
 on: [push]
+
 jobs:
   build-android:
     runs-on: ubuntu-latest
@@ -8,9 +9,10 @@ jobs:
 
       - name: Build with Buildozer
         run: |
-          docker run --rm --user root -w /home/user/hostcwd -v ${{ github.workspace }}:/home/user/hostcwd kivy/buildozer sh -c "yes | buildozer android debug"
+          docker run --rm --user root -v ${{ github.workspace }}:/home/user/hostcwd -w /home/user/hostcwd --entrypoint /bin/sh kivy/buildozer -c "yes | buildozer android debug"
 
-      - uses: actions/upload-artifact@v4
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
         with:
           name: APK-Package
           path: bin/*.apk
