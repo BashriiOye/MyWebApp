@@ -5,11 +5,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      
       - name: Install System Dependencies
         run: sudo apt-get update && sudo apt-get install -y aidl
+        
       - name: Build with Buildozer
         run: |
           docker run --rm --user root -v ${{ github.workspace }}:/home/user/hostcwd kivy/buildozer android debug
+          
       - uses: actions/upload-artifact@v4
         with:
           name: APK-Package
